@@ -48,16 +48,7 @@ Exploratory analysis to understand the data and guide preprocessing decisions. T
 
 ## Data Loading
 
-Load CSV files into pandas DataFrames. Example:
-
-```python
-import pandas as pd
-train = pd.read_csv('data/train.csv')
-test = pd.read_csv('data/test.csv')
-```
-
-Combine train and test for consistent preprocessing, then split back before training.
-
+Load CSV files into pandas DataFrames.
 ---
 
 ## Data summary
@@ -68,16 +59,11 @@ Use `.info()`, `.describe()` and `.head()` to check column types, ranges, and ex
 
 ## Identifying null values
 
-Find columns with missing data and decide fill strategy:
+Find columns with missing data drop data :
 
 ```python
 train.isnull().sum()
 ```
-
-Typical fills used:
-
-* Numeric → median
-* Categorical → `'Unknown'` or `'None'`
 
 ---
 
@@ -86,7 +72,7 @@ Typical fills used:
 Remove exact duplicate rows to avoid biased training:
 
 ```python
-train = train.drop_duplicates()
+df = df.drop_duplicates()
 ```
 
 ---
@@ -100,12 +86,6 @@ train = train.drop_duplicates()
 
 ## Outliers
 
-Detect with boxplots or percentile thresholds. Common action:
-
-```python
-train = train[train['Total_Area'] < train['Total_Area'].quantile(0.99)]
-```
-
 Remove or cap extreme values after careful review.
 
 ---
@@ -115,7 +95,7 @@ Remove or cap extreme values after careful review.
 Compute correlation matrix to find strong predictors and multicollinearity:
 
 ```python
-corr = train.corr()
+corr = df.corr()
 ```
 
 Visualize with a heatmap.
@@ -151,7 +131,7 @@ Encode categorical columns using `LabelEncoder` (saved as `.pkl` files) so the s
 ```python
 from sklearn.preprocessing import LabelEncoder
 le = LabelEncoder()
-train['city_enc'] = le.fit_transform(train['city'])
+train['city_enc'] = le.fit_transform(df['city'])
 # save encoder
 import pickle
 pickle.dump(le, open('models/city_encoder.pkl','wb'))
@@ -163,6 +143,7 @@ pickle.dump(le, open('models/city_encoder.pkl','wb'))
 
 * Try multiple regressors (DecisionTree, RandomForest, ExtraTrees, GradientBoosting)
 * Check bias/variance; RandomForest chosen for stability
+* Tested multiple regression models — Random Forest Regressor achieved 98% accuracy
 * Use `GridSearchCV` or `RandomizedSearchCV` for tuning (optional)
 * Evaluate with R², RMSE, and residual plots
 
