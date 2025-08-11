@@ -22,6 +22,11 @@ A simple, practical regression project that predicts house selling and rental pr
 
 ---
 
+<img src="ss1.png" alt="Diabetes Prediction Web App" width="700">
+<img src="ss2.png" alt="Diabetes Prediction Web App" width="700">
+
+---
+
 ## Project overview
 
 This repository shows how I prepared data, engineered features, trained a Random Forest regression model, and deployed it as a Streamlit app that returns price predictions.
@@ -185,3 +190,11 @@ Run in Colab with a tunnel (ngrok/cloudflared) — see notebook for an example.
 * Don’t commit large raw datasets to GitHub. Add a small sample if needed.
 * If you retrain the model, re-generate encoder `.pkl` files.
 * Ensure `app.py` uses the exact feature order the model expects.
+
+---
+
+## 📢 Author
+
+👨‍💻 **Sarathkumar Soundarrajan**
+📌 LinkedIn: (https://www.linkedin.com/in/sarathkumar271002/))
+📌 GitHub: (https://github.com/sarathkumar271002)
