@@ -22,8 +22,8 @@ A simple, practical regression project that predicts house selling and rental pr
 
 ---
 
-<img src="ss1.png" alt="Diabetes Prediction Web App" width="700">
-<img src="ss2.png" alt="Diabetes Prediction Web App" width="700">
+<img src="hp1.png" alt="Diabetes Prediction Web App" width="700">
+<img src="hp2.png" alt="Diabetes Prediction Web App" width="700">
 
 ---
 
